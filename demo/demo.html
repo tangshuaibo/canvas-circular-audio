@@ -27,8 +27,8 @@
             // 获取节点
             var audioNode = document.querySelector('#audio-sample')
             var canvasNode = document.querySelector('#canvas-audio')
-
-            // 初始化canvas
+            
+            // 实例化CanvasCirclularAudio
             var cca = new CanvasCirclularAudio({
                 audioNode: audioNode,
                 canvasNode: canvasNode,
@@ -36,23 +36,25 @@
                 canvasHeight: 400,
                 picture: './cover.jpg',
                 rotatable: true,
-                rotateStep: 0.2,
-                lineWidth: 1,
-                lineCap: 'butt',
-                fillStyle: '#f44336',
-                strokeStyle: '#f44336',
-                backgroundColor: 'rgba(0, 0, 0, .1)'
+                // rotateStep: 0.2,
+                // lineWidth: 1,
+                // lineCap: 'butt',
+                // fillStyle: '#f44336',
+                // strokeStyle: '#f44336',
+                // backgroundColor: 'rgba(0, 0, 0, .1)'
             })
+
+            // 初始化实例
             cca.init()
 
             // 重新设置canvas属性
-            cca.setContext({
-                lineWidth: 1.5,
-                lineCap: 'square',
-                fillStyle: 'white',
-                strokeStyle: '#2196f3',
-                backgroundColor: '#ffeb3b'
-            })
+            // cca.setContext({
+            //     lineWidth: 1.5,
+            //     lineCap: 'square',
+            //     fillStyle: 'white',
+            //     strokeStyle: '#2196f3',
+            //     backgroundColor: '#ffeb3b'
+            // })
 
             // 设置canvas宽度自适应
             window.addEventListener('resize', function () {
