@@ -2,7 +2,14 @@
 
 > 参考文章：[文章A](https://www.jianshu.com/p/14f1a5af6dd6) | [文章B](https://segmentfault.com/a/1190000017090438) | [文章C](https://www.cnblogs.com/axes/p/3842812.html)
 
-### 引入文件 ###
+#### 使用导航 ####
+
+* [引入文件](#引入文件)
+* [使用示例](#使用示例)
+* [方法与属性](#方法与属性)
+* [效果展示](#效果展示)
+
+#### 引入文件 ####
 
 1. 浏览器环境
 
@@ -16,9 +23,9 @@
     import CanvasCirclularAudio from 'path/to/canvas-circular-audio.es.min.js'
     ```
 
-[_回到顶部_](#Canvas可视化音频效果)
+[_回到顶部_](#使用导航)
 
-### 使用示例 ###
+#### 使用示例 ####
 
 1. 添加 `<audio>` 与 `<canvas>` 元素
 
@@ -91,9 +98,9 @@
     })
     ```
 
-[_回到顶部_](#Canvas可视化音频效果)
+[_回到顶部_](#使用导航)
 
-### 方法与属性
+#### 方法与属性 ####
 
 1. 构造方法 `CanvasCirclularAudio()`
 
@@ -123,7 +130,7 @@
     strokeStyle | `string` | `#e91e63` | 否 | 频谱线线条样式
     backgroundColor | `string` | `null` | 否 | 画布背景渐变基色
 
-[_回到顶部_](#Canvas可视化音频效果)
+[_回到顶部_](#使用导航)
 
 2. 实例方法
 
@@ -171,7 +178,7 @@
         strokeStyle | `string` | 上一次设置的值 | 否 | 频谱线线条样式
         backgroundColor | `string` | 上一次设置的值 | 否 | 画布背景渐变基色
 
-[_回到顶部_](#Canvas可视化音频效果)
+[_回到顶部_](#使用导航)
 
 3. 实例属性
 
@@ -186,4 +193,12 @@
     strokeStyle | `string` | `#e91e63` | 否 | 设置或返回频谱线线条样式
     backgroundColor | `string` | `null` | 否 | 设置或返回画布背景渐变基色
     
-[_回到顶部_](#Canvas可视化音频效果)
+[_回到顶部_](#使用导航)
+
+#### 效果展示 ####
+
+![screenshot](/docs/0.jpg "0.jpg")
+![screenshot](/docs/1.jpg "1.jpg")
+![screenshot](/docs/2.jpg "2.jpg")
+    
+[_回到顶部_](#使用导航)
