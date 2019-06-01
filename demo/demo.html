@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
+    <script src="./canvas-circular-audio.js"></script>
+</head>
+<body>
+    <div id="app">
+        <audio
+            id="audio-sample"
+            src="./HAPPY BIRTHDAY - 恋暴动.mp3"
+            controls
+        >
+            您的浏览器不支持 audio 标签
+        </audio>
+        <canvas id="canvas-audio">
+            您的浏览器不支持 canvas 标签
+        </canvas>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // 获取节点
+            var audioNode = document.querySelector('#audio-sample')
+            var canvasNode = document.querySelector('#canvas-audio')
+
+            // 初始化canvas
+            var cca = new CanvasCirclularAudio({
+                audioNode: audioNode,
+                canvasNode: canvasNode,
+                canvasWidth: canvasNode.clientWidth,
+                canvasHeight: 400,
+                picture: './cover.jpg',
+                rotatable: true,
+                rotateStep: 0.2,
+                lineWidth: 1,
+                lineCap: 'butt',
+                fillStyle: '#f44336',
+                strokeStyle: '#f44336',
+                backgroundColor: 'rgba(0, 0, 0, .1)'
+            })
+            cca.init()
+
+            // 重新设置canvas属性
+            cca.setContext({
+                lineWidth: 1.5,
+                lineCap: 'square',
+                fillStyle: 'white',
+                strokeStyle: '#2196f3',
+                backgroundColor: '#ffeb3b'
+            })
+
+            // 设置canvas宽度自适应
+            window.addEventListener('resize', function () {
+                cca.canvasWidth = canvasNode.clientWidth
+            })
+        })
+    </script>
+</body>
+</html>
