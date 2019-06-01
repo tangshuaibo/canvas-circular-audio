@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/username/repository.git"
+    "url": "https://github.com/tangshuaibo/canvas-circular-audio.git"
   },
   "description": "Audio response canvas effect",
   "main": "./dist/canvas-circular-audio.es.min.js",
