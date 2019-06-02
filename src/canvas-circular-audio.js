@@ -115,11 +115,12 @@ class CanvasCirclularAudio {
 
     // 音频处理
     processAudio () {
-        let audioCtx = new AudioContext()
-        let source = audioCtx.createMediaElementSource(this.audioNode)
-        let analyser = audioCtx.createAnalyser()
+        this.audioCtx = new AudioContext()
+        let source = this.audioCtx.createMediaElementSource(this.audioNode)
+        let analyser = this.audioCtx.createAnalyser()
         source.connect(analyser)
-        analyser.connect(audioCtx.destination)
+        analyser.connect(this.audioCtx.destination)
+        source.connect(this.audioCtx.destination)
         analyser.fftSize = this.audioData.fftSize
         this.audioData.source = source
         this.audioData.analyser = analyser
@@ -257,7 +258,13 @@ class CanvasCirclularAudio {
         // 音频事件监听
         let audio = this.audioNode
         audio.addEventListener('play', () => {
-            this.playing = true
+            if (this.audioCtx.state === 'suspended') {
+                this.audioCtx.resume().then(() => {
+                    this.playing = true
+                })
+            } else {
+                this.playing = true
+            }
         }, false)
         audio.addEventListener('pause', () => {
             this.playing = false

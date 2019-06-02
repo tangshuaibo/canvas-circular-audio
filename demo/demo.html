@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./demo.css">
+    <script src="./color-thief-2.0.2.js"></script>
     <script src="./canvas-circular-audio.js"></script>
 </head>
 <body>
     <div id="app">
         <audio
             id="audio-sample"
-            src="./HAPPY BIRTHDAY - 恋暴动.mp3"
+            src="./Kevin MacLeod - Meditating Beat.mp3"
+            preload="auto"
             controls
         >
             您的浏览器不支持 audio 标签
@@ -27,14 +29,14 @@
             // 获取节点
             var audioNode = document.querySelector('#audio-sample')
             var canvasNode = document.querySelector('#canvas-audio')
-            
+
             // 实例化CanvasCirclularAudio
             var cca = new CanvasCirclularAudio({
                 audioNode: audioNode,
                 canvasNode: canvasNode,
                 canvasWidth: canvasNode.clientWidth,
                 canvasHeight: 400,
-                picture: './cover.jpg',
+                picture: './ken-cheung-256045-unsplash.jpg',
                 rotatable: true,
                 // rotateStep: 0.2,
                 // lineWidth: 1,
@@ -48,13 +50,19 @@
             cca.init()
 
             // 重新设置canvas属性
-            // cca.setContext({
-            //     lineWidth: 1.5,
-            //     lineCap: 'square',
-            //     fillStyle: 'white',
-            //     strokeStyle: '#2196f3',
-            //     backgroundColor: '#ffeb3b'
-            // })
+            cca.setContext({
+                lineWidth: 1.5,
+                lineCap: 'square',
+                fillStyle: 'white',
+                strokeStyle: 'white',
+                backgroundColor: '#ffeb3b'
+            })
+            
+            // 重新设置背景色
+            var picSrc = './ken-cheung-256045-unsplash.jpg'
+            new ColorThief().getColorAsync(picSrc, function (color) {
+                cca.backgroundColor = 'rgba(' + color.join(', ') + '.1)'
+            })
 
             // 设置canvas宽度自适应
             window.addEventListener('resize', function () {

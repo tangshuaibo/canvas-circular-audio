@@ -43,7 +43,7 @@
                 您的浏览器不支持 canvas 标签
             </canvas>
         </div>
-    </ body>
+    </body>
     ```
 
 2. 生成并控制 `CanvasCirclularAudio` 实例
@@ -199,6 +199,5 @@
 
 ![screenshot](/docs/0.jpg "0.jpg")
 ![screenshot](/docs/1.jpg "1.jpg")
-![screenshot](/docs/2.jpg "2.jpg")
     
 [_回到顶部_](#使用导航)

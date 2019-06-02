@@ -2576,11 +2576,12 @@ function () {
     key: "processAudio",
     // 音频处理
     value: function processAudio() {
-      var audioCtx = new AudioContext();
-      var source = audioCtx.createMediaElementSource(this.audioNode);
-      var analyser = audioCtx.createAnalyser();
+      this.audioCtx = new AudioContext();
+      var source = this.audioCtx.createMediaElementSource(this.audioNode);
+      var analyser = this.audioCtx.createAnalyser();
       source.connect(analyser);
-      analyser.connect(audioCtx.destination);
+      analyser.connect(this.audioCtx.destination);
+      source.connect(this.audioCtx.destination);
       analyser.fftSize = this.audioData.fftSize;
       this.audioData.source = source;
       this.audioData.analyser = analyser;
@@ -2735,7 +2736,13 @@ function () {
       // 音频事件监听
       var audio = this.audioNode;
       audio.addEventListener('play', function () {
-        _this2.playing = true;
+        if (_this2.audioCtx.state === 'suspended') {
+          _this2.audioCtx.resume().then(function () {
+            _this2.playing = true;
+          });
+        } else {
+          _this2.playing = true;
+        }
       }, false);
       audio.addEventListener('pause', function () {
         _this2.playing = false;
